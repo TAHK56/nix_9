@@ -1,12 +1,17 @@
-package ua.com.alevel.firsttask;
+package ua.com.alevel.symbol;
 
-import java.io.IOException;
+import ua.com.alevel.TaskHelper;
+import ua.com.alevel.UserInput;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class First {
-    public void start() throws IOException {
+public class FinderSymbols implements TaskHelper
+{
+    @Override
+    public void run()  {
         UserInput userInput = new UserInput();
+        System.out.println("Input a string for finding numbers and letters ");
         String rightInput = userInput.checkInput();
 
         showCountedLetters(rightInput);

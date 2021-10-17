@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hm_1_base_operations</artifactId>
+    <artifactId>hm_2_strings</artifactId>
+    <name>StringReverse</name>
 
     <properties>
         <java.version>17</java.version>
@@ -18,7 +19,6 @@
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>ua.com.alevel</groupId>
@@ -29,7 +29,7 @@
     </dependencies>
 
     <build>
-        <finalName>hm_1_base_operations</finalName>
+        <finalName>hm_2_strings</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

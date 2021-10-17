@@ -1,18 +1,17 @@
 package ua.com.alevel;
 
-import ua.com.alevel.firsttask.First;
-import ua.com.alevel.secondtask.Lesson;
+import ua.com.alevel.lesson.EndLesson;
+import ua.com.alevel.symbol.FinderSymbols;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        System.out.println("Our first task: ");
-        First first = new First();
-        first.start();
+    public static void main(String[] args)  {
+        List<TaskHelper> listTasks = new ArrayList<>();
+        listTasks.add(new FinderSymbols());
+        listTasks.add(new EndLesson());
 
-        System.out.println("Our second task: ");
-        Lesson lesson = new Lesson();
-        lesson.begin();
+        ProgramRun.run(listTasks);
     }
 }
