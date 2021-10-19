@@ -1,4 +1,4 @@
-package ua.com.alevel.file;
+package ua.com.alevel;
 
 public class ReverseString  {
     public static String reverse(String src) {

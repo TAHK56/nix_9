@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>console_helper</artifactId>
+    <artifactId>string_helper</artifactId>
     <build>
         <plugins>
             <plugin>

@@ -1,7 +1,5 @@
 package ua.com.alevel;
 
-import ua.com.alevel.file.ReverseString;
-
 public class Main {
     public static void main(String[] args) {
         UserInput userInput = new UserInput();
@@ -42,6 +40,8 @@ public class Main {
                             if (index1 < index2 && index2 < reverseStringWithIndex.length()) {
                                 System.out.println("Result:");
                                 System.out.println(ReverseString.reverse(reverseStringWithIndex, index1, index2));
+                            } else {
+                                System.out.println("Incorrect index");
                             }
 
                         } else {
@@ -68,6 +68,6 @@ public class Main {
     }
 
     private static boolean checkNumber(String src) {
-        return src.length() == 1 && src.matches("[1-3]");
+        return src.matches("[1-3]{1}");
     }
 }
