@@ -25,6 +25,7 @@
         <module>hm_2_strings</module>
         <module>console_helper</module>
         <module>string_helper</module>
+        <module>hm_3_start_oop</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
