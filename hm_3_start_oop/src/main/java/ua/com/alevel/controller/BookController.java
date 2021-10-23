@@ -58,13 +58,9 @@ public class BookController {
             String title = reader.readLine();
             System.out.println("Please, enter author");
             String author = reader.readLine();
-            System.out.println("Please, enter price");
-            String priceString = reader.readLine();
-            int price = Integer.parseInt(priceString);
             Book book = new Book();
             book.setTitle(title);
             book.setAuthor(author);
-            book.setPrice(price);
             bookService.create(book);
         } catch (IOException e) {
             System.out.println("problem: = " + e.getMessage());
@@ -80,14 +76,10 @@ public class BookController {
             String title = reader.readLine();
             System.out.println("Please, enter author");
             String author = reader.readLine();
-            System.out.println("Please, enter price");
-            String priceString = reader.readLine();
-            int price = Integer.parseInt(priceString);
             Book book = new Book();
             book.setId(id);
             book.setTitle(title);
             book.setAuthor(author);
-            book.setPrice(price);
             bookService.update(book);
         } catch (IOException e) {
             System.out.println("problem: = " + e.getMessage());
@@ -122,7 +114,9 @@ public class BookController {
         Book[] books = bookService.findAll();
         if (books != null && books.length != 0) {
             for (Book book : books) {
-                System.out.println("book = " + book);
+                if (book != null) {
+                    System.out.println("book = " + book);
+                }
             }
         } else {
             System.out.println("books empty");

@@ -8,10 +8,11 @@ import java.util.UUID;
 public final class BookDB {
     private static BookDB instance;
     private static int countBook = 0;
+    private static final int SIZE_DEFAULT = 10;
     private Book[] books;
 
     private BookDB() {
-        books = new Book[10];
+        books = new Book[SIZE_DEFAULT];
     }
 
     public static BookDB getInstance() {
@@ -21,20 +22,16 @@ public final class BookDB {
         return instance;
     }
 
-    public static void main(String[] args) {
-        new BookDB().delete("four");
-    }
-
     public void create(Book book) {
         book.setId(generateId());
         add(book);
     }
 
-    public void update(Book book) {
-        Book current = findById(book.getId());
-        current.setAuthor(book.getAuthor());
-        current.setTitle(book.getTitle());
-        current.setPrice(book.getPrice());
+
+    public void update(Book book)  {
+            Book current = findById(book.getId());
+            current.setAuthor(book.getAuthor());
+            current.setTitle(book.getTitle());
     }
 
     public void delete(String id) {
@@ -59,16 +56,18 @@ public final class BookDB {
             tmp[i] = books[i + count];
         }
         books = tmp;
+        countBook--;
     }
 
     public Book findById(String id) {
+        Optional<Book> optionalBook = Optional.empty();
         for (Book book : books) {
             if (book != null && book.getId().equals(id)) {
-                return book;
+               optionalBook = Optional.of(book);
             }
         }
-        Optional<Book> optionalBook = Optional.ofNullable(null);
-        return optionalBook.get();
+
+        return optionalBook.orElseThrow();
     }
 
     public Book[] findAll() {
@@ -88,12 +87,11 @@ public final class BookDB {
 
     private void add(Book book) {
         if (books.length <= countBook) {
-            System.out.println(countBook);
             Book[] tmp = new Book[books.length * 2];
             System.arraycopy(books, 0, tmp, 0, books.length);
             books = tmp;
-        } else {
-            books[countBook++] = book;
         }
+        books[countBook++] = book;
+
     }
 }

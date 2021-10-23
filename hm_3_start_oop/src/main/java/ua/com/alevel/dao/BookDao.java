@@ -16,7 +16,8 @@ public class BookDao {
         BookDB.getInstance().delete(id);
     }
 
-    public Book findById(String id) {
+
+    public Book findById(String id)  {
         return BookDB.getInstance().findById(id);
     }
 
