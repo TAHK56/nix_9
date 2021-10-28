@@ -19,6 +19,7 @@ public class InputUser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return yourInput;
     }
 }

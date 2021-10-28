@@ -1,6 +1,7 @@
 package ua.com.alevel.geomfigure;
 
-public class Point {
+public final class Point {
+
     private int x;
     private int y;
 

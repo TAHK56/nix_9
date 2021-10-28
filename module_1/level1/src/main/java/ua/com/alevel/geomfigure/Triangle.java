@@ -1,42 +1,43 @@
 package ua.com.alevel.geomfigure;
 
 import ua.com.alevel.validinput.InputCoordinate;
-
 import java.math.BigDecimal;
 
-public class Triangle extends Figure {
+public class Triangle extends Shape {
 
-    public static final int NUMBER_SIDE = 3;
-    private static final Point[] tops = new Point[NUMBER_SIDE];
+    public static final int NUMBER_TOPS = 3;
+    private static final Point[] TOPS = new Point[NUMBER_TOPS];
 
     public Triangle() {
         initializeTops();
+
     }
 
     @Override
     public  BigDecimal computeArea() {
         //Use this formula s = |(x2 - x1)(y3 - y1) - (x3 - x1)(y2 - y1)| / 2
+        BigDecimal coefficient = new BigDecimal("2");
+        final int FIRST_TOP = 0;
+        final int SECOND_TOP = 1;
+        final int THIRD_TOP = 2;
 
-        final BigDecimal coefficient = new BigDecimal("2");
-
-        BigDecimal factorFirst = new BigDecimal(tops[1].getX() - tops[0].getX());
-        BigDecimal factorSecond = new BigDecimal(tops[2].getY() - tops[0].getY());
-        BigDecimal factorThird = new BigDecimal(tops[2].getX() - tops[0].getX());
-        BigDecimal factorFourth = new BigDecimal(tops[1].getY() - tops[0].getY());
+        BigDecimal factorFirst = new BigDecimal(TOPS[SECOND_TOP].getX() - TOPS[FIRST_TOP].getX());
+        BigDecimal factorSecond = new BigDecimal(TOPS[THIRD_TOP].getY() - TOPS[FIRST_TOP].getY());
+        BigDecimal factorThird = new BigDecimal(TOPS[THIRD_TOP].getX() - TOPS[FIRST_TOP].getX());
+        BigDecimal factorFourth = new BigDecimal(TOPS[SECOND_TOP].getY() - TOPS[FIRST_TOP].getY());
 
         BigDecimal insideAbsValue = factorFirst.multiply(factorSecond).subtract(factorThird.multiply(factorFourth));
-        BigDecimal res = insideAbsValue.abs().divide(coefficient);
-        if (res.equals(BigDecimal.ZERO)) {
+        BigDecimal area = insideAbsValue.abs().divide(coefficient);
+        if (area.equals(BigDecimal.ZERO)) {
             System.out.println("All points are one line!!!");
         }
-        return res;
+
+        return area;
     }
 
     private static void initializeTops() {
-        for (int i = 0; i < NUMBER_SIDE; i++) {
-            tops[i] = InputCoordinate.initializePoint();
+        for (int i = 0; i < NUMBER_TOPS; i++) {
+            TOPS[i] = InputCoordinate.initializePoint();
         }
     }
-
-
 }
