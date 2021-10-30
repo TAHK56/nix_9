@@ -11,7 +11,7 @@ import ua.com.alevel.validinput.InputUser;
 
 import java.util.Scanner;
 
-public class Main {
+public class MainFirstLevel {
 
     public static void main(String[] args) {
         runNavigation();
