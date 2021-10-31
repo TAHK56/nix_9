@@ -8,7 +8,8 @@ public class InputArray {
         String array = InputUser.checkInput();
 
         while (!array.matches("(^[+-]?\\d+)( [+-]?\\d+)+") ){
-            System.out.println("Please try again");
+            System.out.println("Please try again!!");
+            System.out.println("You should input more symbols and correct!");
             array = InputUser.checkInput();
         }
 
