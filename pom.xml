@@ -27,6 +27,7 @@
         <module>string_helper</module>
         <module>hm_3_start_oop</module>
         <module>module_1</module>
+        <module>hm_4_logs_and_test</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
