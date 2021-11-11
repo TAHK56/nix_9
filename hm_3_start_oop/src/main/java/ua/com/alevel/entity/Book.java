@@ -1,6 +1,7 @@
 package ua.com.alevel.entity;
 
 public class Book {
+
     private String id;
     private String title;
     private String author;

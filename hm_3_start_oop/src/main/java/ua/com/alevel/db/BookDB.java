@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public final class BookDB {
+
     private static BookDB instance;
     private static int countBook = 0;
     private static final int SIZE_DEFAULT = 10;
