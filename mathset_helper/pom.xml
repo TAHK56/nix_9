@@ -2,12 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>nix_9</artifactId>
+        <groupId>ua.com.alevel</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ua.com.alevel</groupId>
-    <artifactId>nix_9</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>mathset_helper</artifactId>
     <build>
         <plugins>
             <plugin>
@@ -20,18 +22,9 @@
             </plugin>
         </plugins>
     </build>
-    <modules>
-        <module>hm_1_base_operations</module>
-        <module>hm_2_strings</module>
-        <module>console_helper</module>
-        <module>string_helper</module>
-        <module>hm_3_start_oop</module>
-        <module>module_1</module>
-        <module>hm_4_logs_and_test</module>
-        <module>hw_5_collection</module>
-        <module>mathset_helper</module>
-    </modules>
+
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
