@@ -9,7 +9,7 @@ public class MathSet<T extends Number> {
     private final static int MAGNIFIER_SIZE = 2;
 
     private T[] numbers;
-    private int index = 0;
+    private int size = 0;
 
     public MathSet() {
         numbers = (T[]) new Number[DEFAULT_SIZE];
@@ -46,12 +46,12 @@ public class MathSet<T extends Number> {
 
     public void add(T n) {
         if (contains(n)) return;
-        if (numbers.length == index) {
+        if (numbers.length == size) {
             T[] tmp = (T[]) new Number[numbers.length * MAGNIFIER_SIZE + MAGNIFIER_SIZE];
             System.arraycopy(numbers, 0, tmp, 0, numbers.length);
             numbers = tmp;
         }
-        numbers[index++] = n;
+        numbers[size++] = n;
     }
 
     public void add(T... n) {
@@ -79,7 +79,7 @@ public class MathSet<T extends Number> {
             }
         }
         numbers = copy.toArray();
-        index = copy.index;
+        size = copy.size;
     }
 
     public void intersection(MathSet<T>... ms) {
@@ -90,7 +90,7 @@ public class MathSet<T extends Number> {
     }
 
     public void sortDesc() {
-        sortDesc(0, index);
+        sortDesc(0, size);
     }
 
     public void sortDesc(int firstIndex, int lastIndex) {
@@ -111,16 +111,16 @@ public class MathSet<T extends Number> {
 
     public void sortDesc(T value) {
         if (value == null) return;
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < size; i++) {
             if (value.equals(numbers[i])) {
-                sortDesc(i, index);
+                sortDesc(i, size);
                 return;
             }
         }
     }
 
     public void sortAsc() {
-        sortAsc(0, index);
+        sortAsc(0, size);
     }
 
     public void sortAsc(int firstIndex, int lastIndex) {
@@ -141,9 +141,9 @@ public class MathSet<T extends Number> {
 
     public void sortAsc(T value) {
         if (value == null) return;
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < size; i++) {
             if (value.equals(numbers[i])) {
-                sortAsc(i, index);
+                sortAsc(i, size);
                 return;
             }
         }
@@ -183,19 +183,19 @@ public class MathSet<T extends Number> {
                 res = res.add(new BigDecimal(number.doubleValue()));
             }
         }
-        return (T) res.divide(new BigDecimal(index), MathContext.DECIMAL32);
+        return (T) res.divide(new BigDecimal(size), MathContext.DECIMAL32);
     }
 
     public T getMedian() {
         final int median = 2;
         T[] tmp = toArray();
         sortDesc();
-        BigDecimal res = new BigDecimal(numbers[index / median - 1].doubleValue());
-        if (index % 2 == 0) {
-            res = res.add(new BigDecimal(numbers[index / median].doubleValue()));
+        BigDecimal res = new BigDecimal(numbers[size / median - 1].doubleValue());
+        if (size % 2 == 0) {
+            res = res.add(new BigDecimal(numbers[size / median].doubleValue()));
             res = res.divide(new BigDecimal(median), MathContext.DECIMAL32);
         } else {
-            res = new BigDecimal(numbers[index / median].doubleValue());
+            res = new BigDecimal(numbers[size / median].doubleValue());
         }
         numbers = tmp;
         return (T) res;
@@ -212,7 +212,9 @@ public class MathSet<T extends Number> {
         }
         T[] numbersRange = (T[]) new Number[lastIndex - firstIndex];
         System.arraycopy(numbers, firstIndex, numbersRange, 0, lastIndex - firstIndex);
-        return numbersRange;
+        numbers = numbersRange;
+        size = numbersRange.length;
+        return numbers;
     }
 
     public MathSet<T> cut(int firstIndex, int lastIndex) {
@@ -224,6 +226,7 @@ public class MathSet<T extends Number> {
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = null;
         }
+        size = 0;
     }
 
     public void clear(T[] nums) {
@@ -240,6 +243,7 @@ public class MathSet<T extends Number> {
             }
         }
         numbers = clearArray;
+        size = count;
     }
 
     @Override

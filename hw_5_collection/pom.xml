@@ -11,6 +11,20 @@
 
     <artifactId>hw_5_collection</artifactId>
     <name>collection_mathset</name>
+    <dependencies>
+        <dependency>
+            <groupId>ua.com.alevel</groupId>
+            <artifactId>mathset_helper</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>ua.com.alevel</groupId>
+            <artifactId>console_helper</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <java.version>17</java.version>
