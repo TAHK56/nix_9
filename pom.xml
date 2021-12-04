@@ -30,6 +30,7 @@
         <module>hm_4_logs_and_test</module>
         <module>hw_5_collection</module>
         <module>mathset_helper</module>
+        <module>hw_6_exception</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
